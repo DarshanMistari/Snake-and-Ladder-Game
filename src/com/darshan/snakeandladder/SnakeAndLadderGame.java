@@ -5,6 +5,9 @@ import java.util.Random;
 public class SnakeAndLadderGame {
 	
 	private int playerPosition = 0;
+	private static final int NO_PLAY = 0;
+	private static final int LADDER = 1;
+	private static final int SNAKE = 2;
 	
 	public void showPosition()
 	{
@@ -17,6 +20,28 @@ public class SnakeAndLadderGame {
 		
 		int dieNo = random.nextInt(6)+1;
 		System.out.println("Die No :" +dieNo);
+		
+		int position = random.nextInt(3);
+		System.out.println("Position :" +position);
+		
+		switch(position)
+		{
+		case NO_PLAY:
+			playerPosition = playerPosition;
+			break;
+			
+		case LADDER:
+			playerPosition = playerPosition + dieNo;
+			break;
+			
+		case SNAKE:
+			playerPosition = playerPosition - dieNo;
+			if(playerPosition < 0)
+			{
+				playerPosition = 0;
+			}
+			break;
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -26,6 +51,8 @@ public class SnakeAndLadderGame {
 		SnakeAndLadderGame snakeandladdergame = new SnakeAndLadderGame();
 		snakeandladdergame.showPosition();
 		snakeandladdergame.playGame();
+		snakeandladdergame.showPosition();
+
 	}
 
 }
