@@ -8,6 +8,7 @@ public class SnakeAndLadderGame {
 	private static final int NO_PLAY = 0;
 	private static final int LADDER = 1;
 	private static final int SNAKE = 2;
+	private static int WIN_POSITION = 100;
 	
 	public void showPosition()
 	{
@@ -18,29 +19,33 @@ public class SnakeAndLadderGame {
 	{
 		Random random = new Random(); 
 		
-		int dieNo = random.nextInt(6)+1;
-		System.out.println("Die No :" +dieNo);
-		
-		int position = random.nextInt(3);
-		System.out.println("Position :" +position);
-		
-		switch(position)
+		while(playerPosition < WIN_POSITION)
 		{
-		case NO_PLAY:
-			playerPosition = playerPosition;
-			break;
+			int dieNo = random.nextInt(6)+1;
+			System.out.println("Die No :" +dieNo);
 			
-		case LADDER:
-			playerPosition = playerPosition + dieNo;
-			break;
+			int position = random.nextInt(3);
+			System.out.println("Position :" +position);
 			
-		case SNAKE:
-			playerPosition = playerPosition - dieNo;
-			if(playerPosition < 0)
+			switch(position)
 			{
-				playerPosition = 0;
+			case NO_PLAY:
+				playerPosition = playerPosition;
+				break;
+				
+			case LADDER:
+				playerPosition = playerPosition + dieNo;
+				break;
+				
+			case SNAKE:
+				playerPosition = playerPosition - dieNo;
+				if(playerPosition < 0)
+				{
+					playerPosition = 0;
+				}
+				break;
 			}
-			break;
+			showPosition();
 		}
 	}
 	
