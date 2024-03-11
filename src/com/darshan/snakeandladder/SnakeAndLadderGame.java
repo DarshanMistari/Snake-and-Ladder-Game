@@ -27,6 +27,8 @@ public class SnakeAndLadderGame {
 			int position = random.nextInt(3);
 			System.out.println("Position :" +position);
 			
+			System.out.println("-----------------------");
+			
 			switch(position)
 			{
 			case NO_PLAY:
@@ -43,7 +45,11 @@ public class SnakeAndLadderGame {
 				{
 					playerPosition = 0;
 				}
-				break;
+				break;	
+			}
+			if(playerPosition > WIN_POSITION)
+			{
+				playerPosition = playerPosition - dieNo;
 			}
 			showPosition();
 		}
@@ -56,7 +62,6 @@ public class SnakeAndLadderGame {
 		SnakeAndLadderGame snakeandladdergame = new SnakeAndLadderGame();
 		snakeandladdergame.showPosition();
 		snakeandladdergame.playGame();
-		snakeandladdergame.showPosition();
 
 	}
 
