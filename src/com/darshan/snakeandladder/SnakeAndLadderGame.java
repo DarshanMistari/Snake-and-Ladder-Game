@@ -9,6 +9,7 @@ public class SnakeAndLadderGame {
 	private static final int LADDER = 1;
 	private static final int SNAKE = 2;
 	private static int WIN_POSITION = 100;
+	private static int dieCount = 0;
 	
 	public void showPosition()
 	{
@@ -28,6 +29,7 @@ public class SnakeAndLadderGame {
 			System.out.println("Position :" +position);
 			
 			System.out.println("-----------------------");
+			dieCount = dieCount + dieNo;
 			
 			switch(position)
 			{
@@ -53,6 +55,7 @@ public class SnakeAndLadderGame {
 			}
 			showPosition();
 		}
+		System.out.println("Total Die is throw Count :"+dieCount);
 	}
 	
 	public static void main(String[] args) {
@@ -61,8 +64,7 @@ public class SnakeAndLadderGame {
 		
 		SnakeAndLadderGame snakeandladdergame = new SnakeAndLadderGame();
 		snakeandladdergame.showPosition();
-		snakeandladdergame.playGame();
-
+		snakeandladdergame.playGame();		
 	}
 
 }
