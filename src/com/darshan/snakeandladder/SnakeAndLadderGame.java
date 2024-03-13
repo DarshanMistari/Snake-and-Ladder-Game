@@ -29,7 +29,7 @@ public class SnakeAndLadderGame {
 			System.out.println("Position :" +position);
 			
 			System.out.println("-----------------------");
-			dieCount = dieCount + dieNo;
+			dieCount +=1 ;
 			
 			switch(position)
 			{
